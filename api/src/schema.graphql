@@ -1,0 +1,12 @@
+type User {
+  id: ID!
+  username: String!
+  woofs: [Woof]
+}
+
+type Woof {
+  id: ID!
+  author: User
+  content: String!
+  date: Date!
+}
