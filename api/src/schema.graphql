@@ -1,12 +1,27 @@
+scalar timestamp
+
 type User {
-  id: ID!
+  id: Int!
   username: String!
+  password: String!
   woofs: [Woof]
+  followers: Int
+  follows: [User]
 }
 
 type Woof {
-  id: ID!
+  id: Int!
   author: User
   content: String!
-  date: Date!
+  createdAt: timestamp
+}
+
+type Query {
+  woofs: [Woof]
+}
+
+type Mutation {
+  newWoof(content: String!): Woof!
+  editWoof(id: Int!, content: String!): Woof!
+  deleteWoof(id: Int!): Boolean!
 }
